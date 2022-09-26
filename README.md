@@ -1,6 +1,6 @@
 # auth-demo
 
-> This is the starter demo code for class-06.  The code exists on the main branch to begin Module 2, code persist on the branch `demo-code-base` should anyone need for reference as we iterate though this Module of instruction
+> This is the starter demo code for class-06.  The code exists on the main branch to begin Module 2, code persist on the branch `starter-code` should anyone need for reference as we iterate though this Module of instruction
 
 ### Author
 
