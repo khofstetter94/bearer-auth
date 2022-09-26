@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3002;
 // we'll use this for inclass-demo.  one big monolithic file  
 const DATABASE_URL = process.env.NODE_ENV === 'test'
   ? 'sqlite::memory' // two colons allows for NO persistance
-  : 'sqlite:memory';  // one colon allows us to persist
+  : 'sqlite:memory';  // one colon allows us to persist - useful today
 
 // something like this will be used in your ACTUAL project:  
 // const DATABASE_URL = process.env.NODE_ENV === 'test'
