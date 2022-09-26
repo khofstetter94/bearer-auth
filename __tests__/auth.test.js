@@ -1,15 +1,15 @@
 'use strict';
 
-const { server, sequelize } = require('../src/server.js');
+const { server, sequelizeDatabase } = require('../src/server.js');
 const supertest = require('supertest');
 const mockRequest = supertest(server);
 
 beforeAll (async () => {
-  await sequelize.sync();
+  await sequelizeDatabase.sync();
 });
 
 afterAll (async () => {
-  await sequelize.drop();
+  await sequelizeDatabase.drop();
   // if tests aren't passing maybe its a multiple - async issue
   // await sequelize.close();
 });
