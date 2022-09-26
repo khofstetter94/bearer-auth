@@ -1,6 +1,11 @@
 # auth-demo
 
-> This is the starter demo code for class-06.  The code exists on the main branch to begin Module 2, code persist on the branch `starter-code` should anyone need for reference as we iterate though this Module of instruction
+> This is the  demo code for 401d48 / 401d8 Module 2.  The basic auth code currently exists on the main branch. Checkout the relevant branch to see the relevant code.
+
+### Branch Name
+
+- `starter-code` contains the demo starter code used Monday morning to begin Class-06 Basic Auth
+- `basic-auth` contains the completed demo code which we will refactor in code review to begin Class-07
 
 ### Author
 
