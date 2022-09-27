@@ -1,6 +1,7 @@
 'use strict';
 
-const { server, sequelizeDatabase } = require('../src/server.js');
+const { server } = require('../src/server.js');
+const { sequelizeDatabase } = require('../src/auth/models/user-model');
 const supertest = require('supertest');
 const mockRequest = supertest(server);
 
@@ -11,7 +12,7 @@ beforeAll (async () => {
 afterAll (async () => {
   await sequelizeDatabase.drop();
   // if tests aren't passing maybe its a multiple - async issue
-  // await sequelize.close();
+  await sequelizeDatabase.close();
 });
 
 describe('Auth Tests', () => {
@@ -28,4 +29,5 @@ describe('Auth Tests', () => {
     expect(response.body.password).toBeTruthy();
     expect(response.body.password).not.toEqual('pass123');
   });
+
 });
