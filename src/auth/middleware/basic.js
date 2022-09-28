@@ -25,7 +25,7 @@ async function basicAuth(req, res, next) {
     console.log('password:', password);
 
     // find the user in the database
-    let user = await UsersModel.findOne({where: { username }});
+    let user = await UsersModel.findOne({where: { username: username }});
 
     console.log('user:', user);
     // IF the user exists (in database after a signup request)...
