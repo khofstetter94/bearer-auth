@@ -23,8 +23,8 @@ In this phase, the new requirement is that any user that has successfully logged
 
 ### Links and Resources
 
-- [ci/cd](https://github.com/khofstetter94/basic-auth/pull/1)
-- [back-end server url](https://kmh-basic-auth.herokuapp.com/)
+- [ci/cd](https://github.com/khofstetter94/bearer-auth/pull/1)
+- [back-end server url](https://kmh-bearer-auth.herokuapp.com/hello)
 
 ### Setup
 
