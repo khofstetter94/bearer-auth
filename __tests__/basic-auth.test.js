@@ -1,16 +1,18 @@
 'use strict';
 
+const bcrypt = require('bcrypt');
 const basicAuth = require('../src/auth/middleware/basic');
 const { sequelizeDatabase, UsersModel } = require('../src/auth/models/user-model');
 
 let user = {
-  username: 'tester',
+  username: 'test',
   password: 'pass',
 };
 
 
 beforeAll (async () => {
   await sequelizeDatabase.sync();
+  user.password = await bcrypt.hash(user.password, 5);
   await UsersModel.create(user);
 });
 
@@ -23,7 +25,7 @@ afterAll (async () => {
 describe('Basic Auth Middleware Tests', () => {
 
   // Basic dGVzdDpwYXNz
-  test('test /signin route fails appropriately', () => {
+  test('test /signin route fails appropriately', async () => {
     // unit test of basic auth only
     let req = {
       headers: {
@@ -33,13 +35,11 @@ describe('Basic Auth Middleware Tests', () => {
     let res = {};
     let next = jest.fn();
 
-    basicAuth(req, res, next)
-      .then(() => {
-        expect(next).toHaveBeenCalledWith('Not Authorized');
-      });
+    await basicAuth(req, res, next);
 
+    expect(next).toHaveBeenCalledWith('Not Authorized');
   });
-  test('passes appropriately', () => {
+  test('passes appropriately', async () => {
     let req = {
       headers: {
         authorization: 'Basic dGVzdDpwYXNz',
@@ -48,9 +48,8 @@ describe('Basic Auth Middleware Tests', () => {
     let res = {};
     let next = jest.fn();
 
-    basicAuth(req, res, next)
-      .then(() => {
-        expect(next).toHaveBeenCalledWith();
-      });
+    await basicAuth(req, res, next);
+
+    expect(next).toHaveBeenCalledWith();
   });
 });
