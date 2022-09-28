@@ -7,12 +7,12 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const SECRET = process.env.API_SECRET || 'ThisIsMySecret';
 
-// we'll use this for inclass-demo.  one big monolithic file  
+// we'll use this for inclass-demo.  one big monolithic file
 const DATABASE_URL = process.env.NODE_ENV === 'test'
   ? 'sqlite::memory' // two colons allows for NO persistance
   : 'sqlite:memory';  // one colon allows us to persist - useful today
 
-// something like this will be used in your ACTUAL project:  
+// something like this will be used in your ACTUAL project:
 // const DATABASE_URL = process.env.NODE_ENV === 'test'
 //   ? 'sqlite::memory'
 //   : process.env.DATABASE_URL;
@@ -48,7 +48,7 @@ const UsersModel = sequelizeDatabase.define('Users', {
   },
 });
 
-// Attach beforeCreate Hook to the UserModel.  
+// Attach beforeCreate Hook to the UserModel.
 // whole point:  know that exists, and play with a hook. we've done that
 // UsersModel.beforeCreate((user) => {
 //   console.log('our user', user);

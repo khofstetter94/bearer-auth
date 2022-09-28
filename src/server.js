@@ -4,7 +4,7 @@
 const express = require('express');
 const authRouter = require('./auth/router');
 const basicAuth = require('./auth/middleware/basic');
-const bearerAuth= require('./auth/middleware/bearer');
+const bearerAuth = require('./auth/middleware/bearer');
 const { UsersModel } = require('./auth/models/user-model');
 const app = express();
 const PORT = process.env.PORT || 3002;
